@@ -18,13 +18,15 @@
 
 // system include files
 #include <string>
+#include <optional>
+
 // 
 // user include files
 #include "JetMETCorrections/Modules/interface/JetResolution.h"
 #include "CondFormats/JetMETObjects/interface/JetCorrectorParameters.h"
 #include "CondFormats/JetMETObjects/interface/JetCorrectionUncertainty.h"
 #include "JetMETCorrections/Objects/interface/JetCorrectionsRecord.h"
-
+#include "FWCore/Utilities/interface/InputTag.h"
 
 //
 // class declaration
@@ -52,6 +54,13 @@ namespace analysis {
          std::string record;
          edm::ESGetToken<JetCorrectorParametersCollection, JetCorrectionsRecord> jecToken;
       };
+
+      struct PrefiringTags {
+         std::optional<edm::InputTag> nominal;
+         std::optional<edm::InputTag> up;
+         std::optional<edm::InputTag> down;
+      };
+
    }
 }   
 
